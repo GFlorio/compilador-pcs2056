@@ -300,6 +300,11 @@ Token* getToken(FILE* fp) {
             token->valor = chr;
             return token;
         }
+        if (next_state == 0) {
+            token->tipo = state;
+            token->valor = matriz_saida[chr][state];
+            return token;
+        }
         *cursor = (char) chr;
         cursor += 1;
     }
