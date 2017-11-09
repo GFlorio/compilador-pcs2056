@@ -7,10 +7,24 @@
 #ifndef LEXICO_LEXICO_H
 #define LEXICO_LEXICO_H
 
+typedef enum {
+    IDENTIFICADOR,
+    INTEIRO,
+    FLOAT,
+    COMPARADOR,
+    OPERADOR,
+    STRING,
+    COMENTARIO,
+    DELIMITADOR,
+    FIM,
+    ERRO
+} Tipo;
+
 typedef struct Token {
-    int tipo;
-    int valor;
+    Tipo tipo;
+    void* valor;
 } Token;
+
 
 Token* getToken(FILE* fp);
 
